@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -14,8 +10,7 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-
-    <title>Inicio</title>
+    <title>Market</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -50,7 +45,32 @@
         </ul>
       </div>
     </nav>
-    <h1>Pagina de Inicio</h1>
+    <h1>Market</h1>
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Barcode</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.barcode }}</td>
+                <td>$ {{ item.precio }}</td>
+                <td>
+                    <button class="btn btn-outline btn-info">Mas Info</button>
+                    <button class="btn btn-outline btn-success">Comprar</button>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -64,7 +84,7 @@
     ></script>
   </body>
   <style>
-    body{
+    body {
       background-color: #212121;
       color: whitesmoke;
     }
