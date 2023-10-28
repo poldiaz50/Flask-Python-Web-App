@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}
-  Pagina de Inicio
+  Biemvenidos a PolDiazMarket
 {% endblock %}
 
 {% block content %}
-  Este es nuestro contenido para la pagina de inicio
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color: azure;">
+    <div class="col-md5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 font-weight-normal">PolDiaz Market</h1>
+      <p class="lead font-weight-normal">Comience sus compras de productos haciendo click en el link</p>
+      <a href="{{ url_for("market_page") }}" class="btn btn-primary">Empezar a Comprar¡</a>
+    </div>
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+  </div>
 {% endblock %}

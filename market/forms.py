@@ -9,7 +9,7 @@ class RegisterForm(FlaskForm):
         user = User.query.filter_by(usuario=usuario_to_check.data).first()
         if user:
             raise ValidationError("Nombre de usuario ya existe!")
-        
+
     def validate_email(self, email_to_check):
         email = User.query.filter_by(email=email_to_check.data).first()
         if email:
@@ -26,6 +26,7 @@ class RegisterForm(FlaskForm):
         label="Confirmar Password:", validators=[EqualTo("password1"), DataRequired()]
     )
     submit = SubmitField(label="Crear Cuenta")
+
 
 class LoginForm(FlaskForm):
     usuario = StringField(label="Nombre de usuario:", validators=[DataRequired()])
