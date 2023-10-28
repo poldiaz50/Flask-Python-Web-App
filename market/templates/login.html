@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Pagina de Ingreso
+{% endblock %}
+
+{% block content %}
+  <body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-signin" style="color: azure">
+            {{ form.hidden_tag() }}
+            <img class="mb-4 h-25 w-25 mt-3" src="https://cdn.icon-icons.com/icons2/1526/PNG/512/screencart_106583.png" alt="img del login">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Porfavor Ingresar
+            </h1>
+            <br />
+            {{ form.usuario.label() }}
+            {{ form.usuario(class="form-control", placeholder="Usuario:") }}
+
+            {{ form.password.label(class="mt-2") }}
+            {{ form.password(class="form-control", placeholder="Password:") }}
+            <br />
+            <div class="checkbox mb-3">
+                <h6>No tienes una cuenta?</h6>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">
+                    Registrese¡
+                </a>
+            </div>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+  </body>
+{% endblock %}

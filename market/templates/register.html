@@ -27,6 +27,12 @@
         {{ form.password2.label(class="mt-2") }}
         {{ form.password2(class="form-control", placeholder="Confirmar Password") }}
         <br />
+        <div class="checkbox mb-3">
+          <h6>Ya tienes una cuenta?</h6>
+          <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">
+              Ingresa¡
+          </a>
+        </div>
         {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
       </form>
     </div>
