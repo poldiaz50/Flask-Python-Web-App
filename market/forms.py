@@ -32,3 +32,9 @@ class LoginForm(FlaskForm):
     usuario = StringField(label="Nombre de usuario:", validators=[DataRequired()])
     password = PasswordField(label="Password:", validators=[DataRequired()])
     submit = SubmitField(label="Ingresar")
+
+class PurchaseItemForm(FlaskForm):
+    submit = SubmitField(label="Comprar Articulo")
+
+class SellItemForm(FlaskForm):
+    submit = SubmitField(label="Vender Articulo")
