@@ -1,5 +1,5 @@
 <style>
-  .modal-content{
+  .modal-content {
     background-color: #212121;
   }
 </style>
@@ -67,14 +67,18 @@
         <form method="POST">
           {{ purchase_form.hidden_tag() }}
           <h4 class="text-center">
-            Estas seguro de querer comprar este articulo: {{ item.nombre }} por: {{ item.precio }}$ ?
+            Estas seguro de querer comprar este articulo: {{ item.nombre }} por:
+            {{ item.precio }}$ ?
           </h4>
-          <br>
-          <h6 class="text-center">
-            Click para comprar este articulo¡
-          </h6>
-          <br>
-          <input id="purchased_item" name="purchased_item" type="hidden" value="{{ item.nombre }}"/>
+          <br />
+          <h6 class="text-center">Click para comprar este articulo¡</h6>
+          <br />
+          <input
+            id="purchased_item"
+            name="purchased_item"
+            type="hidden"
+            value="{{ item.nombre }}"
+          />
           {{ purchase_form.submit(class="btn btn-outline-success btn-block") }}
         </form>
       </div>

@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     usuario = db.Column(db.String(length=30), nullable=False, unique=True)
     email = db.Column(db.String(length=50), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=60), nullable=False)
-    budget = db.Column(db.Integer(), nullable=False, default=1000)
+    budget = db.Column(db.Integer(), nullable=False, default=2000)
     items = db.relationship("Item", backref="owned_user", lazy=True)
 
     @property
@@ -37,6 +37,9 @@ class User(db.Model, UserMixin):
     
     def can_purchase(self, item_obj):
         return self.budget >= item_obj.precio
+    
+    def can_sell(self, item_obj):
+        return item_obj in self.items
 
 
 class Item(db.Model):
@@ -53,4 +56,9 @@ class Item(db.Model):
     def buy(self, user):
         self.owner = user.id
         user.budget -= self.precio 
+        db.session.commit()
+        
+    def sell(self, user):
+        self.owner = None
+        user.budget += self.precio
         db.session.commit()
